@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ContadorNumeros
 {
@@ -65,13 +66,12 @@ namespace ContadorNumeros
                 }
 
                 Console.WriteLine(new string('-', 60));
-                Console.Write("Deseja Contar Novamente? S/N: ");
-                continuar = Console.ReadLine().ToUpper();
-                Console.WriteLine(new string('-', 60));
 
                 do
                 {
-
+                    Console.Write("Deseja Contar Novamente? S/N: ");
+                    continuar = Console.ReadLine().ToUpper();
+                    Console.WriteLine(new string('-', 60));
                     if (continuar != "S" && continuar != "N")
                     {
                         Console.WriteLine("Valor Inválido, Digite S ou N");
@@ -85,90 +85,61 @@ namespace ContadorNumeros
             Console.ReadKey();
         }
 
-        static void ContarUmEmUm()
+        static int PedirNumero()
         {
-            int numeroContar1 = 0;
+            int numeroContar = 0;
 
-            int numeroUm = 0;
+            bool validarNumero = false;
 
-            bool validarNumeroUm = false;
-
-            while (!validarNumeroUm)
+            while (!validarNumero)
             {
-                Console.Write("Digite Um Número Para Realizar uma Cotagem de 1 em 1: ");
-                string numero1Digitado = Console.ReadLine();
+                Console.Write("Digite Um Número Para Realizar a Contagem: ");
+                string numeroDigitado = Console.ReadLine();
+                Console.WriteLine(new string('-', 60));
 
-                if (int.TryParse(numero1Digitado, out numeroContar1))
+                if (int.TryParse(numeroDigitado, out numeroContar))
                 {
-                    for (numeroUm = 0; numeroUm <= numeroContar1; numeroUm++)
-                    {
-                        Console.WriteLine(numeroUm);
-                        Thread.Sleep(1000);
-                    }
-                    validarNumeroUm = true;
+                    validarNumero = true;
                 }
                 else
                 {
                     Console.WriteLine("Valor Inválido, Digite Apenas Números!");
+                    Console.WriteLine(new string('-', 60));
                 }
+            }
+            return numeroContar;
+        }
+
+        static void ContarUmEmUm()
+        {
+            int numeroFinal = PedirNumero();
+
+            for (int i = 0; i <= numeroFinal; i++)
+            {
+                Console.WriteLine(i);
+                Thread.Sleep(1000);
             }
         }
 
         static void ContarCincoEmCinco()
         {
-            int numeroContar5 = 0;
+            int numeroFinal = PedirNumero();
 
-            int numeroCinco = 0;
-
-            bool validarNumeroCinco = false;
-
-            while (!validarNumeroCinco)
+            for (int i = 0; i <= numeroFinal; i += 5)
             {
-                Console.Write("Digite Um Número Para Realizar uma Cotagem de 5 em 5: ");
-                string numero10Digitado = Console.ReadLine();
-
-                if (int.TryParse(numero10Digitado, out numeroContar5))
-                {
-                    for (numeroCinco = 0; numeroCinco <= numeroContar5; numeroCinco += 5)
-                    {
-                        Console.WriteLine(numeroCinco);
-                        Thread.Sleep(1000);
-                    }
-                    validarNumeroCinco = true;
-                }
-                else
-                {
-                    Console.WriteLine("Valor Inválido, Digite Apenas Números!");
-                }
+                Console.WriteLine(i);
+                Thread.Sleep(1000);
             }
         }
 
         static void ContarDezEmDez()
         {
-            int numeroContar10 = 0;
+            int numeroFinal = PedirNumero();
 
-            int numeroDez = 0;
-
-            bool validarNumeroDez = false;
-
-            while (!validarNumeroDez)
+            for (int i = 0; i <= numeroFinal; i += 10)
             {
-                Console.Write("Digite Um Número Para Realizar uma Cotagem de 10 em 10: ");
-                string numero10Digitado = Console.ReadLine();
-
-                if (int.TryParse(numero10Digitado, out numeroContar10))
-                {
-                    for (numeroDez = 0; numeroDez <= numeroContar10; numeroDez += 10)
-                    {
-                        Console.WriteLine(numeroDez);
-                        Thread.Sleep(1000);
-                    }
-                    validarNumeroDez = true;
-                }
-                else
-                {
-                    Console.WriteLine("Valor Inválido, Digite Apenas Números!");
-                }
+                Console.WriteLine(i);
+                Thread.Sleep(1000);
             }
         }
     }

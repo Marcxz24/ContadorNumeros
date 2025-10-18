@@ -12,3 +12,4 @@ C:\Users\Administrador\Documents\Estudos de Programação CSharp\ContadorNumeros
 C:\Users\Administrador\Documents\Estudos de Programação CSharp\ContadorNumeros\ContadorNumeros\obj\Debug\net8.0\ContadorNumeros.pdb
 C:\Users\Administrador\Documents\Estudos de Programação CSharp\ContadorNumeros\ContadorNumeros\obj\Debug\net8.0\ContadorNumeros.genruntimeconfig.cache
 C:\Users\Administrador\Documents\Estudos de Programação CSharp\ContadorNumeros\ContadorNumeros\obj\Debug\net8.0\ref\ContadorNumeros.dll
+C:\Users\Administrador\Documents\Estudos de Programação CSharp\ContadorNumeros\ContadorNumeros\obj\Debug\net8.0\ContadorNumeros.sourcelink.json
